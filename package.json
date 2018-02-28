@@ -1,0 +1,34 @@
+{
+  "name": "my-webpack-config",
+  "version": "1.0.0",
+  "scripts": {
+    "build:prod": "NODE_ENV=production webpack -p",
+    "build": "webpack"
+  },
+  "browserslist": [
+    "last 4 versions"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.4.2",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.10",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
+    "sass-loader": "^6.0.6",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnyburnside/my-webpack-config.git"
+  },
+  "author": "Donny Burnside <donnyburnside1@gmail.com>",
+  "license": "UNLICENSED"
+}
