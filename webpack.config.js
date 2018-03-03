@@ -6,15 +6,31 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const isProduction = (process.env.NODE_ENV === 'production');
 
 const config = {
-  entry: './resources',
+  entry: {
+    app: './resources/js'
+  },
   output: {
     path: path.resolve(__dirname, 'public/assets'),
-    filename: 'js/app.js',
+    filename: 'js/[name].js',
     publicPath: '/assets/'
   },
   mode: isProduction ? 'production' : 'development',
   resolve: {
     extensions: ['.js', '.scss']
+  },
+  optimization: {
+    runtimeChunk: {
+      "name": "manifest"
+    },
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          "name": "vendor",
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "all"
+        }
+      }
+    }
   },
   module: {
     rules: [{
@@ -73,7 +89,7 @@ const config = {
   },
   plugins: [
     // Extract CSS
-    new ExtractTextPlugin('css/app.css', {
+    new ExtractTextPlugin('css/[name].css', {
       allChunks: true
     }),
 
